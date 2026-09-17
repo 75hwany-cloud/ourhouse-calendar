@@ -60,9 +60,18 @@
     background:var(--bg);
     color:var(--ink);
     font-family:"Gowun Dodum","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
-    padding-inline:16px;
-    padding-bottom:96px;
+    height:100dvh;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
     padding-top:env(safe-area-inset-top,0px);
+  }
+  #app{
+    display:flex;
+    flex-direction:column;
+    flex:1;
+    min-height:0;
+    padding-inline:16px;
   }
   img{max-width:100%;}
   [hidden]{display:none!important;}
@@ -79,11 +88,9 @@
 
   /* ---------- header ---------- */
   .app-header{
-    position:sticky;
-    top:env(safe-area-inset-top,0px);
-    z-index:20;
+    flex:none;
     background:var(--bg);
-    padding-top:18px;
+    padding-top:14px;
     padding-bottom:10px;
     display:flex;
     align-items:center;
@@ -107,9 +114,7 @@
 
   /* ---------- tabs ---------- */
   .tab-bar{
-    position:sticky;
-    top:calc(env(safe-area-inset-top,0px) + 54px);
-    z-index:19;
+    flex:none;
     background:var(--bg);
     display:flex;
     gap:6px;
@@ -133,10 +138,11 @@
 
   /* ---------- member chip row ---------- */
   .member-row{
+    flex:none;
     display:flex;
     gap:8px;
     overflow-x:auto;
-    padding-bottom:12px;
+    padding-bottom:10px;
     scrollbar-width:none;
   }
   .member-row::-webkit-scrollbar{display:none;}
@@ -170,13 +176,20 @@
     padding:6px 4px;
   }
 
-  main{display:block;}
+  main{
+    display:block;
+    flex:1;
+    min-height:0;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    padding-bottom:calc(84px + env(safe-area-inset-bottom,0px));
+  }
   .hidden{display:none!important;}
 
   /* ---------- calendar ---------- */
   .cal-nav{
     display:flex;align-items:center;justify-content:space-between;
-    margin-bottom:10px;
+    margin-bottom:8px;
   }
   .cal-nav .month-label{font-size:19px;}
   .cal-nav .nav-btns{display:flex;gap:6px;align-items:center;}
@@ -210,14 +223,14 @@
   .weekday-row span:last-child{color:#4779A8;}
   .cal-grid{
     display:grid;grid-template-columns:repeat(7,1fr);
-    gap:4px;
+    gap:3px;
   }
   .cal-cell{
     background:var(--surface);
     border:1px solid var(--line);
-    border-radius:12px;
-    min-height:64px;
-    padding:5px 4px;
+    border-radius:10px;
+    min-height:48px;
+    padding:4px 3px;
     cursor:pointer;
     display:flex;flex-direction:column;gap:3px;
     position:relative;
@@ -238,11 +251,11 @@
   .ev-more{font-size:10px;color:var(--ink-faint);}
 
   .day-panel{
-    margin-top:14px;
+    margin-top:10px;
     background:var(--surface);
     border:1px solid var(--line);
     border-radius:var(--radius);
-    padding:14px;
+    padding:12px 14px;
     box-shadow:var(--shadow);
   }
   .day-panel .dp-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
