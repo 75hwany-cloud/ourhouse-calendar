@@ -222,7 +222,7 @@
   .weekday-row span:first-child{color:#C1584A;}
   .weekday-row span:last-child{color:#4779A8;}
   .cal-grid{
-    display:grid;grid-template-columns:repeat(7,1fr);
+    display:grid;grid-template-columns:repeat(7,minmax(0,1fr));
     gap:3px;
   }
   .cal-cell{
@@ -230,6 +230,8 @@
     border:1px solid var(--line);
     border-radius:10px;
     min-height:48px;
+    min-width:0;
+    overflow:hidden;
     padding:4px 3px;
     cursor:pointer;
     display:flex;flex-direction:column;gap:3px;
